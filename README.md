@@ -1,4 +1,4 @@
-# CIS 3339 Homework 1: Vue 3 and MongoDB Migration
+﻿# CIS 3339 Homework 1: Vue 3 and MongoDB Migration
 
 ## Assignment Overview
 
@@ -6,10 +6,10 @@ In this assignment, you will migrate the provided Student Management System into
 
 The starter project contains a Node.js/Express backend and a frontend written with HTML and JavaScript. Your job is to:
 
-- migrate **all frontend functionality** to **Vue 3 using the Composition API**;
-- replace JSON-file storage with **MongoDB**;
+- migrate all frontend functionality to Vue 3 using the Composition API;
+- replace JSON-file storage with MongoDB;
 - complete the student, course, and enrollment features; and
-- create a production build that can be run and tested on `localhost`.
+- create a production build that can be run and tested on localhost.
 
 Do not remove working features during the migration.
 
@@ -39,7 +39,7 @@ You can use AI development tools, such as Visual Studio Code with GitHub Copilot
 
 ## Part 1: Run and Review the Starter Code
 
-Before making changes, review the existing files in `backend/` and `frontend/` and run the starter application.
+Before making changes, review the existing files in backend/ and frontend/ and run the starter application.
 
 ### Run the Backend
 
@@ -49,11 +49,11 @@ npm install
 node server.js
 ```
 
-The starter server runs at `http://localhost:3000`.
+The starter server runs at http://localhost:3000.
 
 ### Review the Frontend
 
-Open the files in `frontend/` and identify how the current pages call the backend. The starter frontend uses plain HTML and JavaScript; it is provided only as the starting point for your Vue migration.
+Open the files in frontend/ and identify how the current pages call the backend. The starter frontend uses plain HTML and JavaScript; it is provided only as the starting point for your Vue migration.
 
 Verify the existing student search and add functionality before you begin. This gives you a known baseline for testing the migrated application.
 
@@ -68,16 +68,16 @@ Replace the plain HTML/JavaScript frontend with a Vue 3 application.
 Your Vue application must:
 
 - use a standard npm-based Vue project structure;
-- use **Vue 3 Composition API** for all frontend functionality;
-- use **Vue Router** to provide client-side navigation between the application's main views;
-- use **Pinia** for shared application state where state must be accessed or updated by multiple components or views;
+- use Vue 3 Composition API for all frontend functionality;
+- use Vue Router to provide client-side navigation between the application's main views;
+- use Pinia for shared application state where state must be accessed or updated by multiple components or views;
 - organize the interface into appropriate reusable components;
 - use reactive Vue state, computed values, lifecycle hooks, and event handlers where appropriate;
 - call the Express backend through HTTP requests;
 - display useful success, validation, loading, and error feedback; and
 - contain no application logic in legacy standalone DOM-manipulation scripts.
 
-Do not use the Vue Options API (`data`, `methods`, `computed`, and similar component options) to implement assignment functionality.
+Do not use the Vue Options API (data, methods, computed, and similar component options) to implement assignment functionality.
 
 ### Requirement 2: Student Management
 
@@ -100,7 +100,7 @@ The Vue application must allow a user to:
 
 Validate required fields and prevent duplicate course IDs.
 
-The example images in `images/` may be used as a reference for the expected features. You may redesign the interface.
+The example images in images/ may be used as a reference for the expected features. You may redesign the interface.
 
 ### Requirement 4: Enrollment Management
 
@@ -115,26 +115,26 @@ Student and course selections must be populated from data returned by the backen
 
 ### Requirement 5: Store Data in MongoDB
 
-Replace all JSON-file persistence with MongoDB. The completed application must not use `students.json` or other local JSON files as its database.
+Replace all JSON-file persistence with MongoDB. The completed application must not use students.json or other local JSON files as its database.
 
-Your application will be graded using **MongoDB Community Edition running locally**. Do not require MongoDB Atlas, a cloud database, authentication credentials, or any external database service.
+Your application will be graded using MongoDB Community Edition running locally. Do not require MongoDB Atlas, a cloud database, authentication credentials, or any external database service.
 
 Your backend must:
 
 - connect to MongoDB using an appropriate Node.js library, such as Mongoose or the official MongoDB driver;
 - store students, courses, and enrollments in MongoDB;
 - define clear schemas or validation rules for the stored data;
-- read the MongoDB connection string from the real, submitted `.env` file;
-- work with a local connection string such as `MONGODB_URI=mongodb://127.0.0.1:27017/cis3339_homework1`;
+- read the MongoDB connection string from the real, submitted .env file;
+- work with a local connection string such as MONGODB_URI=mongodb://127.0.0.1:27017/cis3339_homework1;
 - connect successfully when the specified local database is empty or does not yet exist;
 - automatically create all required database structures, collections, schemas, and indexes during normal application startup or first use;
 - require no manual database configuration, creation, migration, seed, import, or rebuild command;
 - return appropriate HTTP status codes and JSON responses; and
 - handle connection, validation, not-found, and duplicate-record errors gracefully.
 
-The repository **must include the real `.env` file** used to run the submitted application. 
+The repository must include the real .env file used to run the submitted application.
 
-The committed `.env` must contain a working local MongoDB configuration and must not contain passwords, cloud credentials, or other secrets. The grader must be able to clone the repository, install dependencies, start MongoDB Community Edition, and run the application against an empty database without manually creating, configuring, migrating, seeding, importing, or rebuilding the database.
+The committed .env must contain a working local MongoDB configuration and must not contain passwords, cloud credentials, or other secrets. The grader must be able to clone the repository, install dependencies, start MongoDB Community Edition, and run the application against an empty database without manually creating, configuring, migrating, seeding, importing, or rebuilding the database.
 
 ### Requirement 6: Data Integrity
 
@@ -153,7 +153,7 @@ Configure the project so the frontend can be compiled as a production build with
 npm run build
 ```
 
-The build command must complete without errors and generate the Vue production assets. Configure the Express backend to serve those built assets so the complete application can be opened from a `localhost` URL.
+The build command must complete without errors and generate the Vue production assets. Configure the Express backend to serve those built assets so the complete application can be opened from a localhost URL.
 
 Document the exact commands needed to install, build, and start your completed application. A typical production test workflow is:
 
@@ -163,19 +163,9 @@ npm run build
 npm start
 ```
 
-After startup, the application must be accessible in a browser through the documented `localhost` address. Opening the old frontend HTML files directly is not an acceptable deployment method.
+After startup, the application must be accessible in a browser through the documented localhost address. Opening the old frontend HTML files directly is not an acceptable deployment method.
 
-You may use either a root-level npm configuration that coordinates the frontend and backend or clearly documented npm commands in the appropriate project directory. In either case, `npm run build` must build the Vue frontend, and the backend must serve the resulting production files.
-
-Production workflow for this project:
-
-```bash
-npm install
-npm run build
-npm start
-```
-
-After startup, open `http://localhost:3000` in a browser. The Express backend serves the built Vue assets from the frontend `dist` directory, so the full application runs from the localhost URL instead of loading the legacy HTML files directly.
+You may use either a root-level npm configuration that coordinates the frontend and backend or clearly documented npm commands in the appropriate project directory. In either case, npm run build must build the Vue frontend, and the backend must serve the resulting production files.
 
 ### Requirement 8: User Interface Design
 
@@ -196,16 +186,16 @@ Vue Router navigation must work when users move between views, and refreshing a 
 
 ### Test Student Management
 
-1. Add a student with the following information: name `John`, student ID `1001`, phone `555-1234`, and ZIP code `77001`.
-2. Search for `John` and confirm that the correct record appears.
-3. Add another student: name `Jane`, student ID `1002`, phone `555-5678`, and ZIP code `77002`.
+1. Add a student with the following information: name John, student ID 1001, phone 555-1234, and ZIP code 77001.
+2. Search for John and confirm that the correct record appears.
+3. Add another student: name Jane, student ID 1002, phone 555-5678, and ZIP code 77002.
 4. Attempt to add a duplicate student ID and confirm that the application rejects it.
 5. Delete John and confirm that he no longer appears.
 
 ### Test Course Management
 
-1. Add course `CIS 3339` with the name `Enterprise Applications Development`.
-2. Add course `CIS 3368` with the name `Advanced Object-Oriented Programming`.
+1. Add course CIS 3339 with the name Enterprise Applications Development.
+2. Add course CIS 3368 with the name Advanced Object-Oriented Programming.
 3. List all courses and confirm that both appear.
 4. Attempt to add a duplicate course ID and confirm that the application rejects it.
 5. Delete one course and confirm that its enrollments are also removed.
@@ -222,21 +212,12 @@ Vue Router navigation must work when users move between views, and refreshing a 
 ### Test MongoDB Persistence
 
 1. Start with MongoDB Community Edition running locally and an empty or nonexistent assignment database.
-2. Confirm that the real `.env` file is present, tracked by Git.
+2. Confirm that the real .env file is present, tracked by Git.
 3. Install and start the application without running a database setup, creation, migration, seed, import, or rebuild command.
 4. Confirm that the application automatically initializes what it needs and can add students, courses, and enrollments.
 5. Stop and restart the application without reseeding or rebuilding the database.
 6. Refresh the application and confirm that the saved data remains available.
 7. Inspect MongoDB and confirm that the records are stored there rather than in JSON files.
-
-### Test the Production Build
-
-1. Run `npm run build` using your documented procedure.
-2. Confirm that the command finishes without errors.
-3. Start the production server.
-4. Open the documented `localhost` URL in a browser.
-5. Test every required feature using the production build.
-6. Confirm that the browser console and server terminal contain no unexpected errors.
 
 ---
 
@@ -257,26 +238,26 @@ Your repository must include:
 - [ ] Automatic operation with an empty or nonexistent local MongoDB database, with no manual database preparation
 - [ ] Validation, duplicate prevention, and cascading enrollment deletion
 - [ ] Environment-based MongoDB configuration
-- [ ] The real `.env` file, configured for local MongoDB, committed to Git
-- [ ] A working `npm run build` command
-- [ ] A production server that serves the built application on `localhost`
+- [ ] The real .env file, configured for local MongoDB, committed to Git
+- [ ] A working npm run build command
+- [ ] A production server that serves the built application on localhost
 - [ ] Updated setup, build, and run instructions
 - [ ] Graceful error handling and no unexpected console errors
 
 Do not submit:
 
-- `node_modules/`;
+- node_modules/
 
 ---
 
 ## Part 5: Submission Instructions
 
 1. Complete and test all required functionality.
-2. Verify that the real `.env` file is committed to Git.
-3. Verify the application with a clean installation of its dependencies and the committed `.env` file.
+2. Verify that the real .env file is committed to Git.
+3. Verify the application with a clean installation of its dependencies and the committed .env file.
 4. Verify that the application starts against an empty or nonexistent local MongoDB Community Edition database without any manual configuration, creation, migration, seeding, import, or rebuild step.
 5. Verify MongoDB persistence after restarting the server.
-6. Verify the production workflow with `npm run build`.
+6. Verify the production workflow with npm run build.
 7. Remove debug code and confirm there are no unexpected errors or warnings.
 8. Commit and push the completed project to the repository.
 
@@ -288,7 +269,7 @@ Your own README must clearly state:
 - local MongoDB Community Edition startup instructions;
 - the production build command;
 - the server start command; and
-- the exact `localhost` URL used to open the application.
+- the exact localhost URL used to open the application.
 
 ---
 
@@ -297,8 +278,8 @@ Your own README must clearly state:
 ### The Backend Cannot Connect to MongoDB
 
 - Confirm that MongoDB Community Edition is installed and running locally.
-- Confirm that `MONGODB_URI` is defined correctly.
-- Confirm that the submitted `.env` file is present and points to the local MongoDB service.
+- Confirm that MONGODB_URI is defined correctly.
+- Confirm that the submitted .env file is present and points to the local MongoDB service.
 
 ### The Frontend Cannot Reach the API
 
@@ -308,28 +289,13 @@ Your own README must clearly state:
 
 ### The Production Page Is Blank or Returns 404
 
-- Run `npm run build` again and confirm that the production assets are generated.
-- Confirm that Express is serving the correct build-output directory.
-
-### A Dependency Is Missing
-
-Run `npm install` in each directory that contains a `package.json`, following your project's documented setup procedure.
+- Confirm that the backend is serving the built production files.
+- Confirm that the build completed successfully.
+- Confirm that the frontend route fallback is configured correctly.
+- Check the server logs for a static file or route error.
 
 ---
 
-## Evaluation Focus
+## Final Note
 
-Your work will be evaluated for:
-
-- correct use of Vue 3 Composition API;
-- correct use of Vue Router and Pinia;
-- complete and correct functionality;
-- MongoDB persistence and data modeling;
-- automatic startup with an empty local MongoDB database;
-- API design, validation, and error handling;
-- data integrity and cascading deletes;
-- successful production build and local deployment;
-- code organization and maintainability;
-- required interface quality and accessibility; and
-- clear documentation and user experience.
-
+This assignment is designed to test your ability to migrate a working full-stack application to a modern Vue 3 and MongoDB-based architecture while preserving required behavior and operational quality.
