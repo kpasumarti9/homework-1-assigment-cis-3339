@@ -167,6 +167,16 @@ After startup, the application must be accessible in a browser through the docum
 
 You may use either a root-level npm configuration that coordinates the frontend and backend or clearly documented npm commands in the appropriate project directory. In either case, `npm run build` must build the Vue frontend, and the backend must serve the resulting production files.
 
+Production workflow for this project:
+
+```bash
+npm install
+npm run build
+npm start
+```
+
+After startup, open `http://localhost:3000` in a browser. The Express backend serves the built Vue assets from the frontend `dist` directory, so the full application runs from the localhost URL instead of loading the legacy HTML files directly.
+
 ### Requirement 8: User Interface Design
 
 A well-designed, user-friendly interface is required. The application must include:
